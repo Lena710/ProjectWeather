@@ -1,0 +1,92 @@
+.container {
+  border: 3px solid #ffda85;
+
+  margin: 50px;
+  max-width: 75%;
+  border-radius: 10px;
+  background: #f8eacd;
+  padding-top: 30px;
+}
+
+form {
+  margin: 20px 10px 20px 30px;
+  display: inline;
+}
+
+.city {
+  padding: 20px 275px 20px 10px;
+  margin-right: 10px;
+
+  border: 4px solid #ffda85;
+  background: #ffebbb;
+}
+
+.searchButton {
+  padding: 20px 40px 20px 40px;
+  margin-right: 10px;
+  border-radius: 50px;
+  border: 4px solid #ffda85;
+  text-align: center;
+  background: #ffebbb;
+}
+
+.searchButton:hover {
+  cursor: pointer;
+  background: white;
+}
+
+.currentLocationButton {
+  display: inline;
+  padding: 20px 40px 20px 40px;
+  border-radius: 50px;
+  border: 4px solid #ffda85;
+  text-align: center;
+  background: #ffebbb;
+}
+.currentLocationButton:hover {
+  cursor: pointer;
+  background: white;
+}
+
+.currentWeather {
+  border: 3px dotted #ffda85;
+  border-radius: 10px;
+  margin-left: 40px;
+  margin-top: 50px;
+}
+
+.rainEmoji {
+  position: relative;
+  top: -10px;
+  left: -40px;
+  font-size: 100px;
+}
+.niceDay {
+  position: relative;
+  top: 80px;
+  right: -30px;
+  border: none;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #ffda85;
+  box-shadow: 20px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.days {
+  margin-top: 60px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+.fiveDays {
+  border: none;
+  text-align: center;
+  padding: 5px 0 5px 0;
+  background: #fdffcd;
+  padding: 20px 20px 20px 20px;
+  box-shadow: 20px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.bird {
+  padding-top: 70px;
+}
