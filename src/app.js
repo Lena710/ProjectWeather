@@ -1,5 +1,5 @@
-//chellenge 1(week4)
-let now = new Date();
+function formatDate(timestamp) {
+let now = new Date(timestamp);
 
 let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 let currentWeekDay = days[now.getDay()];
@@ -32,18 +32,34 @@ if (currentMinutes < 10) {
   currentMinutes = `0${currentMinutes}`;
 }
 
-let currentTime = document.querySelector("#currentDate");
-currentTime.innerHTML = `${currentWeekDay}, ${currentMonth} ${currentDate}, ${currentHour}:${currentMinutes}`;
+
+return `${currentWeekDay}, ${currentMonth} ${currentDate}, ${currentHour}:${currentMinutes}`;
+}
 
 //challenge (week5)
 function showTemperature(response) {
+  console.log(response);
   document.querySelector("#chosenCity").innerHTML = response.data.name;
+  
+  let currentFullDate = document.querySelector("#currentDate");
+  currentFullDate.innerHTML = formatDate(response.data.dt*1000);
+
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("#currentTemp").innerHTML = Math.round(
-    response.data.main.temp
+     celsiusTemperature
   );
-  document.querySelector("#feelsLike").innerHTML = `Feels like: ${Math.round(
-    response.data.main.feels_like
-  )}`;
+  let weatherIcon = document.querySelector("#weatherIcon");
+  weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
+  
+  //стикер справа
+  feelsLikeCelsiusTemperature = response.data.main.feels_like;
+  document.querySelector("#feelsLike").innerHTML = `${Math.round(
+    feelsLikeCelsiusTemperature)}°`;
+    document.querySelector("#windSpeed").innerHTML = Math.round(response.data.wind.speed);
+   document.querySelector("#description").innerHTML = response.data.weather[0].description;
+  
 }
 
 function searchCity(city) {
@@ -90,10 +106,50 @@ function showPosition(position) {
 }
 
 function currentLocation(event) {
+  
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
 let currentLocationButton = document.querySelector("#currentLocationButton");
 currentLocationButton.addEventListener("click", currentLocation);
+
+
+
+
+
+function convertToF(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9)/5+32;
+  document.querySelector("#currentTemp").innerHTML = Math.round(
+     fahrenheitTemperature
+  );
+  let feelsLikefahrenheitTemperature = (feelsLikeCelsiusTemperature * 9)/5+32;
+  document.querySelector("#feelsLike").innerHTML = `${Math.round(feelsLikefahrenheitTemperature
+  )}°F`;
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  }
+
+function convertToC(event) {
+  event.preventDefault();
+  document.querySelector("#currentTemp").innerHTML = Math.round(
+     celsiusTemperature
+  );
+  document.querySelector("#feelsLike").innerHTML = `${Math.round(
+     feelsLikeCelsiusTemperature
+  )}°C`;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
+
+let celsiusTemperature = null;
+let feelsLikeCelsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", convertToF);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", convertToC);
+
 
 currentLocation();

@@ -40,20 +40,21 @@
             <div class="col-9">
               <h1>
                 <span id="chosenCity"></span>
-                <br /><span id="currentDate">Fri, April 8, 13:00</span>
+                <small><br /><span id="currentDate">Fri, April 8, 13:00</span></small>
                 <br /><span id="currentTemp"></span>
-                °C
-                <br /><span id="feelsLike"></span>
+                ° <a href="#" id="celsius" class="active">C</a> | <a href="#" id="fahrenheit">F</a>
+                <small><br /><span id="description"></span></small>
               </h1>
             </div>
             <div class="col-3">
-              <span class="rainEmoji">🌧</span>
+              <img src="#" id="weatherIcon"></img>
             </div>
           </div>
         </div>
         <div class="col-3 niceDay">
           <h2>
-            Have a <br />nice <br />day! <br />
+           Feels like:  <br/><span id="feelsLike"></span>
+             <br />Wind Speed: <br /><span id = "windSpeed"></span> km/h <br />
             🌺
           </h2>
         </div>

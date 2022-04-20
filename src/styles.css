@@ -56,11 +56,11 @@ form {
   margin-top: 50px;
 }
 
-.rainEmoji {
+#weatherIcon {
   position: relative;
   top: -10px;
-  left: -40px;
-  font-size: 100px;
+  left: -70px;
+  width: 210px;
 }
 .niceDay {
   position: relative;
@@ -92,7 +92,21 @@ form {
   padding-top: 70px;
 }
 
+.active {
+  cursor: default;
+  text-decoration:none;
+  color: black;
+}
+
+.active:hover {
+  color: black;
+}
+
 footer {
   margin-left: 50px;
   margin-bottom: 20px;
+}
+
+#description {
+  text-transform: capitalize;
 }
