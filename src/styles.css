@@ -1,23 +1,26 @@
+body {
+  background: #f8f2e8;
+}
+
 .container {
   border: 3px solid #ffda85;
-
-  margin: 50px 50px 0 50px;
-
   max-width: 75%;
   border-radius: 10px;
   background: #f8eacd;
   padding-top: 30px;
+  padding-bottom: 0;
+  display: block;
+  margin: 50px auto 10px auto;
 }
 
 form {
-  margin: 20px 10px 20px 30px;
+  margin: 20px 10px 0px 30px;
   display: inline;
 }
 
 .city {
   padding: 20px 275px 20px 10px;
   margin-right: 10px;
-
   border: 4px solid #ffda85;
   background: #ffebbb;
 }
@@ -53,7 +56,7 @@ form {
   border: 3px dotted #ffda85;
   border-radius: 10px;
   margin-left: 40px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 #weatherIcon {
@@ -64,32 +67,38 @@ form {
 }
 .niceDay {
   position: relative;
-  top: 80px;
+  top: 50px;
   right: -30px;
   border: none;
   text-align: center;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   background: #ffda85;
   box-shadow: 20px 0 20px rgba(0, 0, 0, 0.4);
 }
 
 .days {
-  margin-top: 60px;
+  margin-top: 65px;
   margin-left: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
+
+
 .fiveDays {
   border: none;
   text-align: center;
-  padding: 5px 0 5px 0;
+  padding: 20px 0px 20px 0px;
   background: #fdffcd;
-  padding: 20px 20px 20px 20px;
   box-shadow: 20px 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  
 }
 
 .bird {
-  padding-top: 70px;
+  position: relative;
+right: -800px;
+top: -80px;
+  
 }
 
 .active {
@@ -103,10 +112,10 @@ form {
 }
 
 footer {
-  margin-left: 50px;
-  margin-bottom: 20px;
+ margin: 20px 160px;
 }
 
 #description {
   text-transform: capitalize;
 }
+

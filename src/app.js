@@ -36,9 +36,16 @@ if (currentMinutes < 10) {
 return `${currentWeekDay}, ${currentMonth} ${currentDate}, ${currentHour}:${currentMinutes}`;
 }
 
-//challenge (week5)
+
+function getForecast(coordinates) {
+  let apiKey ="acd3ca1419714529dc453d27a3161478";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+
 function showTemperature(response) {
-  console.log(response);
+  
   document.querySelector("#chosenCity").innerHTML = response.data.name;
   
   let currentFullDate = document.querySelector("#currentDate");
@@ -60,6 +67,7 @@ function showTemperature(response) {
     document.querySelector("#windSpeed").innerHTML = Math.round(response.data.wind.speed);
    document.querySelector("#description").innerHTML = response.data.weather[0].description;
   
+   getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -83,7 +91,7 @@ form.addEventListener("submit", submit);
 //bonus Week5
 
 function changeCurrentCity(response) {
-  console.log(response);
+  
   let currentCity = document.querySelector("#chosenCity");
   currentCity.innerHTML = response.data[0].name;
 
@@ -151,5 +159,36 @@ fahrenheitLink.addEventListener("click", convertToF);
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", convertToC);
 
+function formatDay (timestamp) {
+  let now = new Date(timestamp*1000);
+  let day = now.getDay();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  return days[day];
+}
 
-currentLocation();
+
+function displayForecast(response) {
+console.log(response.data.daily);
+let forecast = response.data.daily;
+let forecastElement = document.querySelector("#days");
+let forecastHTML = `<div class="row">`;
+
+forecast.forEach(function (forecastDay, index) {
+  if (index<5) {
+  forecastHTML = forecastHTML + `<div class="col-2">
+        <div class ="fiveDays"> 
+            ${formatDay(forecastDay.dt)}
+            <br/><img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="50"/>
+            <br/>${Math.round(forecastDay.temp.min)}/<strong>${Math.round(forecastDay.temp.max)}</strong>°C
+            </div>
+        </div>`
+} 
+});
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
+
+
+searchCity("Saint Petersburg");
+
