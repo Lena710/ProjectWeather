@@ -136,8 +136,25 @@ function convertToF(event) {
   )}°F`;
   fahrenheitLink.classList.add("active");
   celsiusLink.classList.remove("active");
+  let forecastTempMinElement = document.querySelectorAll("#forecastTempMin");
+    forecastTempMinElement[0].innerHTML = Math.round((forecastTempMinElement[0].innerHTML* 9)/5+32);
+    forecastTempMinElement[1].innerHTML = Math.round((forecastTempMinElement[1].innerHTML* 9)/5+32);
+    forecastTempMinElement[2].innerHTML = Math.round((forecastTempMinElement[2].innerHTML* 9)/5+32);
+    forecastTempMinElement[3].innerHTML = Math.round((forecastTempMinElement[3].innerHTML* 9)/5+32);
+    forecastTempMinElement[4].innerHTML = Math.round((forecastTempMinElement[4].innerHTML* 9)/5+32);
+
+let forecastTempMaxElement = document.querySelectorAll("#forecastTempMax");
+    forecastTempMaxElement[0].innerHTML = Math.round((forecastTempMaxElement[0].innerHTML* 9)/5+32);
+    forecastTempMaxElement[1].innerHTML = Math.round((forecastTempMaxElement[1].innerHTML* 9)/5+32);
+    forecastTempMaxElement[2].innerHTML = Math.round((forecastTempMaxElement[2].innerHTML* 9)/5+32);
+    forecastTempMaxElement[3].innerHTML = Math.round((forecastTempMaxElement[3].innerHTML* 9)/5+32);
+    forecastTempMaxElement[4].innerHTML = Math.round((forecastTempMaxElement[4].innerHTML* 9)/5+32);
+
   
   }
+
+  
+
 
 function convertToC(event) {
   event.preventDefault();
@@ -149,6 +166,22 @@ function convertToC(event) {
   )}°C`;
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+  let forecastTempMinElement = document.querySelectorAll("#forecastTempMin");
+    forecastTempMinElement[0].innerHTML = Math.round((forecastTempMinElement[0].innerHTML-32)*5/9);
+    forecastTempMinElement[1].innerHTML = Math.round((forecastTempMinElement[1].innerHTML-32)*5/9);
+    forecastTempMinElement[2].innerHTML = Math.round((forecastTempMinElement[2].innerHTML-32)*5/9);
+    forecastTempMinElement[3].innerHTML = Math.round((forecastTempMinElement[3].innerHTML-32)*5/9);
+    forecastTempMinElement[4].innerHTML = Math.round((forecastTempMinElement[4].innerHTML-32)*5/9);
+
+  let forecastTempMaxElement = document.querySelectorAll("#forecastTempMax");
+    forecastTempMaxElement[0].innerHTML = Math.round((forecastTempMaxElement[0].innerHTML-32)*5/9);
+    forecastTempMaxElement[1].innerHTML = Math.round((forecastTempMaxElement[1].innerHTML-32)*5/9);
+    forecastTempMaxElement[2].innerHTML = Math.round((forecastTempMaxElement[2].innerHTML-32)*5/9);
+    forecastTempMaxElement[3].innerHTML = Math.round((forecastTempMaxElement[3].innerHTML-32)*5/9);
+    forecastTempMaxElement[4].innerHTML = Math.round((forecastTempMaxElement[4].innerHTML-32)*5/9);
+
+    
+
 }
 
 let celsiusTemperature = null;
@@ -180,9 +213,9 @@ forecast.forEach(function (forecastDay, index) {
         <div class ="fiveDays"> 
             <strong><em>${formatDay(forecastDay.dt)}</em></strong>
             <br/><img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="50"/>
-            <br/>${Math.round(forecastDay.temp.min)}
+            <br/><span id = "forecastTempMin">${Math.round(forecastDay.temp.min)}</span>°
             
-            /<strong>${Math.round(forecastDay.temp.max)}</strong>°C
+            /<strong><span id="forecastTempMax">${Math.round(forecastDay.temp.max)}</span></strong>°
             </div>
         </div>`
 } 
@@ -194,4 +227,3 @@ forecastElement.innerHTML = forecastHTML;
 
 
 searchCity("Saint Petersburg");
-
