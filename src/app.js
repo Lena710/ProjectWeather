@@ -136,6 +136,7 @@ function convertToF(event) {
   )}°F`;
   fahrenheitLink.classList.add("active");
   celsiusLink.classList.remove("active");
+  
   }
 
 function convertToC(event) {
@@ -177,9 +178,11 @@ forecast.forEach(function (forecastDay, index) {
   if (index<5) {
   forecastHTML = forecastHTML + `<div class="col-2">
         <div class ="fiveDays"> 
-            ${formatDay(forecastDay.dt)}
+            <strong><em>${formatDay(forecastDay.dt)}</em></strong>
             <br/><img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="50"/>
-            <br/>${Math.round(forecastDay.temp.min)}/<strong>${Math.round(forecastDay.temp.max)}</strong>°C
+            <br/>${Math.round(forecastDay.temp.min)}
+            
+            /<strong>${Math.round(forecastDay.temp.max)}</strong>°C
             </div>
         </div>`
 } 

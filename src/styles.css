@@ -1,12 +1,24 @@
+
 body {
-  background: #f8f2e8;
+background: #f8f2e8;
+background-image: url("pexels-photo-918642.jpeg");
+color: rgb(3, 3, 24);
 }
+
+
+a {
+  color: black;
+  font-weight: bold;
+}
+
+
+
 
 .container {
   border: 3px solid #ffda85;
   max-width: 75%;
   border-radius: 10px;
-  background: #f8eacd;
+  background: #68807973;
   padding-top: 30px;
   padding-bottom: 0;
   display: block;
@@ -19,10 +31,16 @@ form {
 }
 
 .city {
-  padding: 20px 275px 20px 10px;
+  padding: 20px 260px 20px 10px;
   margin-right: 10px;
   border: 4px solid #ffda85;
-  background: #ffebbb;
+  background:#8ba4a796;
+  font-weight: bold;
+  
+}
+
+.city:hover {
+  background:#657678b0;
 }
 
 .searchButton {
@@ -31,12 +49,13 @@ form {
   border-radius: 50px;
   border: 4px solid #ffda85;
   text-align: center;
-  background: #ffebbb;
+  background: #657678b0;
+  font-weight: bold;
 }
 
 .searchButton:hover {
   cursor: pointer;
-  background: white;
+  background: #8ba4a796;
 }
 
 .currentLocationButton {
@@ -45,11 +64,12 @@ form {
   border-radius: 50px;
   border: 4px solid #ffda85;
   text-align: center;
-  background: #ffebbb;
+  background:#657678b0;
+  font-weight: bold;
 }
 .currentLocationButton:hover {
   cursor: pointer;
-  background: white;
+  background:#8ba4a796;
 }
 
 .currentWeather {
@@ -73,7 +93,7 @@ form {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 0px;
-  background: #ffda85;
+  background: #657678b0;
   box-shadow: 20px 0 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -88,7 +108,7 @@ form {
   border: none;
   text-align: center;
   padding: 20px 0px 20px 0px;
-  background: #fdffcd;
+  background: #657678b0;
   box-shadow: 20px 0 20px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   
