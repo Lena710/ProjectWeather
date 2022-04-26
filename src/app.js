@@ -90,27 +90,17 @@ form.addEventListener("submit", submit);
 
 //bonus Week5
 
-function changeCurrentCity(response) {
-  
-  let currentCity = document.querySelector("#chosenCity");
-  currentCity.innerHTML = response.data[0].name;
 
-  let apiKey = "acd3ca1419714529dc453d27a3161478";
-  let units = "metric";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${apiEndpoint}?q=${response.data[0].name}&appid=${apiKey}&units=${units}`;
-
-  axios.get(apiUrl).then(showTemperature);
-}
 
 function showPosition(position) {
+  console.log(position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "acd3ca1419714529dc453d27a3161478";
   let units = "metric";
-  let apiEndpoint = "https://api.openweathermap.org/geo/1.0/reverse";
-  let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&limit=5&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(changeCurrentCity);
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function currentLocation(event) {
